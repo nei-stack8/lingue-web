@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lingue Arquitectura</title>
+<meta name="description" content="Lingue Arquitectura: oficina de diseño, ejecución y construcción. Habilitación de oficinas, remodelaciones de casas y departamentos, mobiliario a medida y puesta en valor de propiedades. Desde 2018.">
+<meta property="og:title" content="Lingue Arquitectura · Diseño, ejecución y construcción">
+<meta property="og:description" content="Habilitación de oficinas, remodelaciones y mobiliario a medida para empresas, inversionistas y particulares.">
+<meta property="og:image" content="img/hero-sala.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: sobria, cercana, de oficina que diseña y construye
+   IDEA: el portafolio impreso de la oficina, llevado a la web
+   PICTURE: fotos reales de obra, grandes, sobre campos azul marino
+   COLOUR and TYPE: azul Lingue #1e1f3e, blanco, gris piedra; Montserrat como en el portafolio
+   LAYOUT: bandas a todo el ancho, galería filtrable, contacto directo */
+:root{color-scheme:light;--navy:#1e1f3e;--navy2:#2a2c55;--ink:#1d1e2c;--mute:#5d6072;--line:#e3e2de;--stone:#f4f2ee;--white:#fff;--wa:#1f8f55}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--white);color:var(--ink);font:16px/1.65 Montserrat,system-ui,sans-serif;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-weight:700;line-height:1.1;margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,3.6vw,42px)}
+h3{font-size:19px}
+p{margin:0 0 1em}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(48px,7vw,104px) max(5vw,18px)}
+.lead{font-size:17px;color:var(--mute);max-width:62ch}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:2px;font:600 15px Montserrat,sans-serif;text-decoration:none;border:1.5px solid currentColor;cursor:pointer;background:none}
+.btn.solid{background:var(--white);color:var(--navy);border-color:var(--white)}
+.btn.wa{background:var(--wa);color:#fff;border-color:var(--wa)}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #8fa3ff;outline-offset:3px}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px;padding:0 max(5vw,18px)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{height:40px;width:auto}
+.word{font-weight:600;font-size:20px;letter-spacing:.28em;line-height:1;display:flex;flex-direction:column;gap:5px}
+.word small{font-size:9.5px;font-weight:500;letter-spacing:.24em;opacity:.8;text-transform:uppercase}
+.menu{display:flex;gap:clamp(14px,2.4vw,34px);font-size:14px;font-weight:500}
+.menu a{text-decoration:none;opacity:.85;padding:10px 0}
+.menu a:hover{opacity:1}
+.menu .cta{border:1.5px solid #fff;padding:9px 16px;opacity:1}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:min(86vh,760px)}
+.hero-text{padding:clamp(40px,6vw,88px) max(5vw,18px);display:flex;flex-direction:column;justify-content:center;gap:22px}
+.hero-text .tag{font-size:14px;font-weight:600;letter-spacing:.04em;opacity:.8}
+.hero h1{font-size:clamp(34px,4.4vw,56px)}
+.hero p{font-size:17px;opacity:.88;max-width:46ch;margin:0}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.hero-pic{position:relative;overflow:hidden}
+.hero-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:slow 18s ease-out both}
+@keyframes slow{from{transform:scale(1.08)}to{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.hero-pic img{animation:none}html{scroll-behavior:auto}}
+
+/* nosotros */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center}
+.about img{width:100%;aspect-ratio:4/4.4;object-fit:cover}
+.about h2{margin-bottom:22px}
+.facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.facts b{display:block;font-size:26px;color:var(--navy)}
+.facts span{font-size:14px;color:var(--mute)}
+
+/* servicios */
+.services{background:var(--stone)}
+.services header,.work header{position:static;background:none;color:inherit}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:40px}
+.card{background:var(--navy);color:#fff;padding:30px 28px;display:flex;flex-direction:column;gap:14px}
+.card .who{font-size:14px;opacity:.75}
+.card p{margin:0;opacity:.92}
+.card a{margin-top:auto;font-weight:600;font-size:14px;padding-top:8px}
+.process{margin-top:44px;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:32px;background:#fff;padding:clamp(26px,4vw,44px);border:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;border-top:2px solid var(--navy);padding-top:12px}
+.steps li::before{content:counter(s);font-weight:700;color:var(--navy);font-size:22px;display:block}
+.steps b{display:block;font-size:15px}
+.steps span{font-size:14px;color:var(--mute)}
+
+/* proyectos */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:30px 0 28px}
+.filters button{font:500 14px Montserrat,sans-serif;min-height:44px;padding:0 18px;border:1.5px solid var(--navy);background:#fff;color:var(--navy);cursor:pointer;border-radius:2px}
+.filters button[aria-pressed=true]{background:var(--navy);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.proj{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:12px}
+.proj .ph{overflow:hidden;aspect-ratio:4/3;background:var(--stone)}
+.proj img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.proj:hover img{transform:scale(1.04)}
+.proj:focus-visible{outline:3px solid #8fa3ff;outline-offset:4px}
+.proj .meta{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.proj h3{font-size:17px}
+.proj small{font-size:13px;color:var(--mute);white-space:nowrap}
+
+/* lightbox */
+dialog{border:0;padding:0;width:min(1100px,94vw);max-height:92vh;background:#fff;color:var(--ink)}
+dialog::backdrop{background:rgba(15,16,34,.82)}
+.lb{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);max-height:92vh}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;background:#111;scrollbar-width:none}
+.slides img{flex:0 0 100%;width:100%;height:min(78vh,640px);object-fit:contain;scroll-snap-align:center}
+.lb-side{padding:28px;overflow:auto;display:flex;flex-direction:column;gap:14px}
+.lb-side small{color:var(--mute);font-size:13px}
+.lb-nav{display:flex;gap:8px;margin-top:auto;align-items:center}
+.lb-nav button,.close{min-width:44px;min-height:44px;border:1.5px solid var(--navy);background:#fff;color:var(--navy);font:600 18px Montserrat,sans-serif;cursor:pointer}
+.close{position:absolute;top:10px;right:10px;background:#fff}
+.count{font-size:13px;color:var(--mute);margin-left:6px}
+
+/* contacto */
+.contact{background:var(--navy);color:#fff}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:center}
+.contact p{opacity:.88}
+.chan{display:grid;gap:2px;margin:0;padding:0;list-style:none}
+.chan a{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.2);text-decoration:none}
+.chan span{font-size:13px;opacity:.7}
+.chan b{font-size:17px;font-weight:600;overflow-wrap:anywhere;text-align:right}
+footer{background:#15162d;color:rgba(255,255,255,.7);font-size:13px;padding:26px max(5vw,18px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+
+@media(max-width:900px){
+  .menu a:not(.cta){display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-pic{min-height:52vw;order:-1}
+  .about,.contact .wrap,.process{grid-template-columns:1fr}
+  .cards,.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lb{grid-template-columns:1fr;overflow:auto}
+  .slides img{height:56vh}
+}
+@media(max-width:600px){
+  .cards,.grid{grid-template-columns:1fr}
+  .about img{aspect-ratio:4/3}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Principal">
+    <a class="brand" href="#inicio" aria-label="Lingue Arquitectura, inicio"><img src="img/logo-marca.png" alt=""><span class="word">LINGUE<small>Arquitectura interior</small></span></a>
+    <div class="menu">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a class="cta" href="#contacto">Contacto</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <span class="tag">Diseño · Ejecución · Construcción</span>
+    <h1>Diseñamos y construimos espacios que funcionan</h1>
+    <p>Habilitación de oficinas, remodelaciones de casas y departamentos y mobiliario a medida, desde el diseño hasta la entrega.</p>
+    <div class="acts">
+      <a class="btn solid" href="#proyectos">Ver proyectos</a>
+      <a class="btn" href="https://wa.me/56999961903?text=Hola%20Lingue%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-pic"><img src="img/hero-sala.jpg" alt="Sala de reuniones con mobiliario de madera y vista a la ciudad"></div>
+</section>
+
+<section class="band" id="nosotros">
+  <div class="wrap about">
+    <img src="img/nosotros.jpg" alt="Recepción con revestimiento de piedra y listones de madera iluminados" loading="lazy">
+    <div>
+      <h2>Quiénes somos</h2>
+      <p>Somos <strong>Lingue Arquitectura</strong>, una oficina dedicada al diseño, desarrollo y construcción de proyectos.</p>
+      <p>Desde 2018 trabajamos en proyectos de distintas escalas, combinando diseño, experiencia técnica y una gestión cercana para desarrollar soluciones adaptadas a las necesidades de cada cliente.</p>
+      <p>Trabajamos de forma colaborativa: entender bien los requerimientos, cuidar el detalle y ejecutar con calidad en cada etapa. Nuestro equipo multidisciplinario de profesionales en arquitectura y construcción está comprometido con el buen diseño y la correcta ejecución de cada obra.</p>
+      <div class="facts">
+        <div><b>2018</b><span>Trabajando desde</span></div>
+        <div><b>3</b><span>Líneas de trabajo</span></div>
+        <div><b>Diseño + obra</b><span>Un solo equipo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band services" id="servicios">
+  <div class="wrap">
+    <h2>Una oficina, tres formas de trabajar</h2>
+    <p class="lead" style="margin-top:14px">Diseñamos y ejecutamos soluciones para empresas, inversionistas y clientes particulares.</p>
+    <div class="cards">
+      <article class="card">
+        <h3>Empresas (B2B)</h3>
+        <span class="who">Habilitadoras · Constructoras · Oficinas de arquitectura e interiorismo</span>
+        <p>Nos integramos como equipo de subcontrato y ejecución: mobiliario a medida, terminaciones, remodelaciones y partidas de obra, respetando el diseño y los requerimientos de cada proyecto.</p>
+        <a href="#proyectos" data-go="b2b">Ver proyectos B2B →</a>
+      </article>
+      <article class="card">
+        <h3>Inmobiliario</h3>
+        <span class="who">Inversionistas · Corredores · Brokers · Propietarios</span>
+        <p>Puesta en valor de propiedades para vender o arrendar mejor. Identificamos las intervenciones de mayor impacto y ejecutamos las mejoras que potencian su valor y atractivo, cuidando la inversión.</p>
+        <a href="#proyectos" data-go="inmo">Ver proyectos inmobiliarios →</a>
+      </article>
+      <article class="card">
+        <h3>Particular · Residencial</h3>
+        <span class="who">Casas · Departamentos · Remodelaciones</span>
+        <p>Remodelaciones integrales y proyectos a medida, desde el diseño y la definición de materiales hasta la ejecución de obra y el mobiliario, para mejorar la función, la estética y la calidad de cada espacio.</p>
+        <a href="#proyectos" data-go="part">Ver proyectos residenciales →</a>
+      </article>
+    </div>
+    <div class="process">
+      <div>
+        <h3 style="font-size:24px">Tu proyecto, nuestra ejecución</h3>
+        <p class="lead" style="font-size:15px;margin-top:12px">Así trabajamos cuando nos sumamos a tu obra.</p>
+      </div>
+      <ol class="steps">
+        <li><b>Desarrollo técnico</b><span>Planos y detalles de fabricación</span></li>
+        <li><b>Propuesta económica</b><span>Cotización detallada por alcance</span></li>
+        <li><b>Planificación</b><span>Carta Gantt y coordinación de obra</span></li>
+        <li><b>Ejecución</b><span>Fabricación, instalación y supervisión</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="band work" id="proyectos">
+  <div class="wrap">
+    <h2>Proyectos</h2>
+    <div class="filters" role="group" aria-label="Filtrar proyectos">
+      <button type="button" data-f="all" aria-pressed="true">Todos</button>
+      <button type="button" data-f="b2b" aria-pressed="false">Empresas</button>
+      <button type="button" data-f="inmo" aria-pressed="false">Inmobiliario</button>
+      <button type="button" data-f="part" aria-pressed="false">Residencial</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="band contact" id="contacto">
+  <div class="wrap">
+    <div>
+      <h2>Conversemos tu proyecto</h2>
+      <p style="margin-top:18px;max-width:48ch">Cuéntanos qué necesitas: una oficina por habilitar, una propiedad por poner en valor o una cocina por remodelar. Te respondemos con una propuesta a la medida.</p>
+      <a class="btn wa" style="margin-top:10px" href="https://wa.me/56999961903?text=Hola%20Lingue%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    </div>
+    <ul class="chan">
+      <li><a href="mailto:linguearq@gmail.com"><span>Correo</span><b>linguearq@gmail.com</b></a></li>
+      <li><a href="tel:+56999961903"><span>Teléfono</span><b>+56 9 9996 1903</b></a></li>
+      <li><a href="https://www.instagram.com/lingue_arquitectura/" target="_blank" rel="noopener"><span>Instagram</span><b>@lingue_arquitectura</b></a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span>© <span id="yr">2026</span> Lingue Arquitectura</span>
+  <img src="img/logo-blanco.png" alt="Lingue Arquitectura Interior" style="height:56px;width:auto">
+</footer>
+
+<dialog id="lb" aria-label="Detalle del proyecto">
+  <button class="close" type="button" aria-label="Cerrar">×</button>
+  <div class="lb">
+    <div class="slides" id="slides" tabindex="0"></div>
+    <div class="lb-side">
+      <small id="lbCat"></small>
+      <h2 id="lbTitle" style="font-size:28px"></h2>
+      <p id="lbText"></p>
+      <small id="lbCredit"></small>
+      <div class="lb-nav">
+        <button type="button" id="prev" aria-label="Foto anterior">‹</button>
+        <button type="button" id="next" aria-label="Foto siguiente">›</button>
+        <span class="count" id="count"></span>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+{
+const CAT={b2b:'Empresas',inmo:'Inmobiliario',part:'Residencial'};
+const P=[
+ {id:'wrangler',n:4,c:'b2b',t:'Oficinas Wrangler',d:'Habilitación integral de oficinas corporativas, con oficinas privadas, salas de reuniones y áreas de trabajo colaborativas. El proyecto incluyó terminaciones, especialidades, tabiquería vidriada y mobiliario, creando un espacio moderno y funcional, pensado para la eficiencia y el trabajo en equipo.'},
+ {id:'cowork',n:3,c:'b2b',t:'Cowork LD',d:'Habilitación integral de oficinas sobre un piso entregado en obra gruesa. Incluyó terminaciones, especialidades, mobiliario a medida y la coordinación completa de la obra, transformando el espacio en un cowork moderno, funcional y de alta calidad.'},
+ {id:'ideal',n:3,c:'b2b',t:'Oficina Ideal',d:'Diseño y habilitación de espacios de trabajo modernos y funcionales, con recepción corporativa, oficinas privadas y áreas operativas. Una propuesta de líneas limpias, paleta de materiales neutra y mobiliario a medida.'},
+ {id:'ibg',n:3,c:'b2b',t:'Oficinas IBG',d:'Planta de dimensiones acotadas, con un layout optimizado para lograr la mayor capacidad operativa sin comprometer la comodidad. Se integraron oficinas privadas, salas de reuniones y estaciones de trabajo colaborativas, junto con la ejecución completa de la obra.'},
+ {id:'aramco',n:2,c:'b2b',t:'Kitchenette Aramco',d:'Kitchenette para el personal operativo de la Estación de Servicio Aramco Curauma. Optimiza un espacio compacto con mobiliario funcional, materiales de alta resistencia y gráfica corporativa: un ambiente eficiente, fácil de mantener y alineado con la identidad de la marca.'},
+ {id:'chada',n:3,c:'b2b',t:'Cocina Chada',d:'Ejecución de mobiliario para vivienda unifamiliar: cocina, isla, despensa, logia, clósets y muebles de TV. La propuesta optimizó el almacenamiento y dio continuidad al diseño interior de la vivienda.',cr:'Diseño: Arquitectura Libre · Ejecución: Lingue Arquitectura'},
+ {id:'raul',n:4,c:'inmo',t:'Depto Raúl',d:'Renovación integral de cocina y baños para aumentar la plusvalía de la propiedad y su valor de arriendo. Una propuesta contemporánea, materiales de calidad y una distribución optimizada.'},
+ {id:'adsis',n:4,c:'inmo',t:'Casa Adsis',d:'Remodelación integral de una vivienda antigua, rescatando y poniendo en valor sus pisos y aberturas originales. Se incorporó una nueva cocina, mejorando la luminosidad, la funcionalidad y el confort de los espacios.'},
+ {id:'vallenar',n:2,c:'inmo',t:'Cocina Vallenar',d:'Renovación de cocina sin modificar su configuración principal. Nuevo mobiliario a medida, superficies de trabajo e iluminación, para una cocina más funcional, actual y coherente con el carácter de la vivienda.'},
+ {id:'d603',n:3,c:'inmo',t:'Depto 603',d:'Renovación integral de cocina en departamento, transformando una propuesta de tonos oscuros en un espacio más luminoso, moderno y acogedor, con nuevos acabados, mobiliario y un comedor diario integrado.'},
+ {id:'rubens',n:4,c:'part',t:'Cocina Rubens',d:'Integración de la cocina con el estar-comedor mediante la apertura de un muro existente. Más luz natural, mejor circulación y un área social que pasó a ser el principal punto de encuentro de la casa.'},
+ {id:'paula',n:3,c:'part',t:'Patio Paula',d:'Remodelación integral de terraza: jardineras, huerto, bancas de madera, nuevos pavimentos y quincho, para convertir el exterior en una extensión funcional y acogedora de la vivienda.'},
+ {id:'facundo',n:3,c:'part',t:'Cocina Facundo',d:'Remodelación de cocina en un departamento del conjunto patrimonial Empart. Se conservó el pavimento original y se renovó todo el mobiliario base y aéreo, modernizando el espacio sin perder su identidad.'},
+ {id:'pablo',n:3,c:'part',t:'Cocina Pablo',d:'Remodelación de cocina en departamento antiguo para modernizar y mejorar su funcionalidad: nueva distribución, más almacenamiento y una propuesta contemporánea.'},
+ {id:'jimena',n:2,c:'part',t:'Cocina Jimena',d:'Una cocina cerrada transformada en un espacio abierto, integrado al área social. Una barra multifuncional y un mueble de TV mejoran la conexión, la amplitud y la luminosidad.'},
+ {id:'edmundo',n:3,c:'part',t:'Cocina Edmundo',d:'Renovación integral de cocina en departamento, transformando una propuesta de tonos oscuros en un espacio más luminoso, moderno y acogedor, con nuevos acabados, mobiliario y un comedor diario integrado.'},
+ {id:'casa2m',n:3,c:'part',t:'Casa 2M',d:'Vivienda de fin de semana de 30 m² construida a partir de dos contenedores marítimos de 20 pies, con estar, kitchenette, dormitorio, baño y terraza. Cada espacio optimizado para una solución funcional, confortable y conectada con el entorno.'}
+];
+const grid=document.getElementById('grid');
+const src=(p,i)=>`img/${p.id}-${i}.jpg`;
+grid.innerHTML=P.map((p,k)=>`<button class="proj" type="button" data-k="${k}" data-c="${p.c}">
+  <div class="ph"><img src="${src(p,1)}" alt="${p.t}" loading="lazy"></div>
+  <div class="meta"><h3>${p.t}</h3><small>${CAT[p.c]}</small></div></button>`).join('');
+
+const btns=[...document.querySelectorAll('.filters button')];
+function filter(f){
+  btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===f));
+  grid.querySelectorAll('.proj').forEach(el=>el.hidden=!(f==='all'||el.dataset.c===f));
+}
+btns.forEach(b=>b.addEventListener('click',()=>filter(b.dataset.f)));
+document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',()=>filter(a.dataset.go)));
+
+const dlg=document.getElementById('lb'),slides=document.getElementById('slides'),count=document.getElementById('count');
+let cur=0,tot=0;
+function open(k){
+  const p=P[k];tot=p.n;cur=0;
+  slides.innerHTML=Array.from({length:p.n},(_,i)=>`<img src="${src(p,i+1)}" alt="${p.t}, foto ${i+1}">`).join('');
+  document.getElementById('lbTitle').textContent=p.t;
+  document.getElementById('lbCat').textContent=CAT[p.c];
+  document.getElementById('lbText').textContent=p.d;
+  document.getElementById('lbCredit').textContent=p.cr||'';
+  count.textContent=`1 / ${tot}`;
+  dlg.showModal();slides.scrollLeft=0;
+}
+function go(d){cur=Math.max(0,Math.min(tot-1,cur+d));slides.children[cur].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});count.textContent=`${cur+1} / ${tot}`}
+slides.addEventListener('scroll',()=>{const i=Math.round(slides.scrollLeft/slides.clientWidth);if(i!==cur){cur=i;count.textContent=`${cur+1} / ${tot}`}});
+grid.addEventListener('click',e=>{const b=e.target.closest('.proj');if(b)open(+b.dataset.k)});
+document.getElementById('prev').addEventListener('click',()=>go(-1));
+document.getElementById('next').addEventListener('click',()=>go(1));
+dlg.querySelector('.close').addEventListener('click',()=>dlg.close());
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+dlg.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+document.getElementById('yr').textContent=new Date().getFullYear();
+}
+</script>
+</body>
+</html>
